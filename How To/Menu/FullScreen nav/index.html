@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        span {
+            padding: 10px;
+            margin: 10px;
+            background-color: gray;
+            color: white;
+            border-radius: 4px;
+        }
+
+        span:hover {
+            background-color: green;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            overflow: hidden;
+            height: 0;
+            width: 0;
+        }
+
+        #cross {
+            margin: 20px;
+            text-align: end;
+        }
+
+        nav {
+            background-color: black;
+            color: lightgray;
+        }
+
+        #cross:hover {
+            color: white;
+        }
+
+        li:hover {
+            color: white;
+        }
+
+        li {
+            margin: 20px auto;
+        }
+
+        .info {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div id="cross">&#x2716;</div>
+        <ul class="info">
+            <li>Home</li>
+            <li>About</li>
+            <li>Services</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <span class="down">Down</span>
+        <span class="right">Right</span>
+        <span class="no_animate">No animate</span>
+    </div>
+    <script>
+        document.querySelector('.down').addEventListener('click', () => {
+            updateHW(0);
+            console.log('I am here!')
+            document.querySelector('.navbar').style.transition = `500ms`;   
+            document.querySelector('.navbar').style.width = `100%`;   
+        })
+
+
+        function updateHW(flag) {
+            if (flag == 0) {
+                document.querySelector('.navbar').style.height = '100%';
+                document.querySelector('.navbar').style.width = '0';
+            }
+            else if (flag == 1) {
+                document.querySelector('.navbar').style.height = '0';
+                document.querySelector('.navbar').style.width = '100%';
+            }
+            else{
+                document.querySelector('.navbar').style.height = '0';
+                document.querySelector('.navbar').style.width = '0';
+            }
+            console.log('I am updateHW');
+        } 
+    </script>
+</body>
+
+</html>

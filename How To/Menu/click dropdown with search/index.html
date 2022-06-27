@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/c2401036eb.js" crossorigin="anonymous"></script>
+    <style>
+        .dropbtn {
+            font-size: 20px;
+            padding: 15px 20px;
+            background-color: rgb(13, 85, 241);
+            color: white;
+            border: none;
+
+        }
+
+        .dropdown-content {
+            position: fixed;
+            display: flex;
+            width: 200px;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: max-content;
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+            display: none;
+
+
+        }
+
+        a {
+            padding: 20px 0 20px 30px;
+            text-decoration: none;
+            text-emphasis: none;
+            font-size: 20px;
+            color: black;
+        }
+
+        a:hover {
+            background-color: #ddd;
+        }
+
+        #myInput {
+            box-sizing: border-box;
+            background-image: url('search_icon.png');
+            background-position: 14px 12px;
+            background-repeat: no-repeat;
+            font-size: 16px;
+            padding: 14px 20px 12px 45px;
+            border: none;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #myInput:focus {outline: 3px solid #ddd;}
+    </style>
+</head>
+
+<body>
+    <h2>Hoverable Dropdown</h2>
+    <p>Move the mouse over the button to open the dropdown menu.</p>
+
+    <div class="dropdown">
+        <button class="dropbtn">Click <span id="ic"><i class="fa-solid fa-caret-down"></i></span></button>
+        <div id="myDropdown" class="dropdown-content">
+            <input type="text" placeholder="Search.." id="myInput">
+            <a href="#about">About</a>
+            <a href="#base">Base</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Contact</a>
+            <a href="#custom">Custom</a>
+            <a href="#support">Support</a>
+            <a href="#tools">Tools</a>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.dropbtn').addEventListener('click', () => {
+            if (document.querySelector('.dropdown-content').style.display == 'none') {
+                document.querySelector('.dropdown-content').style.display = 'flex';
+                document.getElementById('ic').innerHTML = '<i class="fa-solid fa-caret-up"></i>';
+            }
+            else {
+                document.querySelector('.dropdown-content').style.display = 'none';
+                document.getElementById('ic').innerHTML = '<i class="fa-solid fa-caret-down"></i>';
+            }
+
+        })
+
+        document.getElementById('myInput').addEventListener('keyup',()=>{
+            const word = document.getElementById('myInput').value.toUpperCase();
+            const words = document.getElementsByTagName('a');
+            for(let element of words){
+                element.innerHTML.toUpperCase().search(word) == -1?element.style.display = 'none':element.style.display = 'inline-block';
+            };
+
+
+        })
+
+    </script>
+</body>
+
+</html>

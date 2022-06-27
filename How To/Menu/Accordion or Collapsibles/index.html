@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth scroll;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .div_section {
+            padding: 2%;
+            display: flex;
+            justify-content: space-between;
+            background-color: lightgrey;
+            cursor: pointer;
+        }
+
+        .para {
+            padding: 2%;
+            text-align: justify;
+        }
+    </style>
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <div class="div_section" id="section_1">
+            <span>Section 1</span>
+            <span id="section_id1">+</span>
+        </div>
+        <div class="para" id="p1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quod repellat maxime
+            ducimus veritatis hic exercitationem consequatur suscipit, ullam fugit ut debitis rem.</div>
+        <div class="div_section" id="section_2">
+            <span>Section 2</span>
+            <span id="section_id2">+</span>
+        </div>
+        <div class="para" id="p2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, deleniti!
+            Perspiciatis expedita optio natus similique iure fugit, nam in aperiam corporis voluptatem quae. Ab magnam
+            inventore sunt neque facilis alias illo sapiente doloribus repellendus doloremque voluptate, delectus nemo.
+            Obcaecati, consequatur iste quidem ipsa doloremque harum est, tempore modi, cum dolores vero temporibus
+            pariatur. Possimus, nobis esse?</div>
+        <div class="div_section" id="section_3">
+            <span>Section 3</span>
+            <span id="section_id3">+</span>
+        </div>
+        <div class="para" id="p3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime cum a commodi dolores
+            quis, eius, iure inventore eligendi, earum architecto sit nesciunt voluptate eveniet? Fuga tempora
+            cupiditate ipsam cum ea. Voluptas iste vitae saepe!</div>
+    </main>
+    <footer></footer>
+    <script>
+        const paras = document.getElementsByClassName('para');
+        for (let i = 0; i < paras.length; i++) {
+            document.getElementById(`p${i + 1}`).style.visibility = "collapse";
+        }
+        const sections = document.getElementsByClassName("div_section");
+        for (let i = 0; i < sections.length; i++) {
+            sections[i].addEventListener("mouseenter", () => {
+                sections[i].style.background = "grey";
+            })
+            sections[i].addEventListener("mouseleave", () => {
+                if (document.getElementById(`p${i + 1}`).style.visibility === "collapse") {
+                    sections[i].style.background = "lightgrey";
+                }
+            })
+            document.getElementById(`section_${i + 1}`).addEventListener(
+                "click", () => {
+                    if (document.getElementById(`p${i + 1}`).style.visibility === "collapse") {
+                        document.getElementById(`p${i + 1}`).style.visibility = "visible";
+                        document.getElementById(`section_id${i + 1}`).innerHTML = `-`;
+                        document.getElementById(`section_${i + 1}`).style.background = "grey";
+                    }
+                    else {
+                        document.getElementById(`p${i + 1}`).style.visibility = "collapse";
+                        document.getElementById(`section_id${i + 1}`).innerHTML = `+`;
+                        document.getElementById(`section_${i + 1}`).style.background = "lightgrey";
+                    }
+                }
+            )
+        }
+    </script>
+</body>
+
+</html>

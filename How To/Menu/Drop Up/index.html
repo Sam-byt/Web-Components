@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            padding: 20px;
+        }
+        nav{
+            height: 100px;
+        }
+        span{
+            padding: 15px;
+            background-color:rgb(14, 130, 212);
+            color: white;
+        }
+        .links{
+            position: absolute;
+            top:40px;
+            height: max-content;
+            display: flex;
+            flex-direction: column;
+            width: max-content;
+            display:none;
+        }
+        a{
+            text-decoration: none;
+            text-emphasis: none;
+            padding: 15px 40px;
+            background-color:white;
+            color: black;
+
+        }
+
+        a:hover{
+            background-color: lightgrey;    
+        }
+
+        .dropup:hover .links{
+            display:flex;
+        }
+    </style>
+</head>
+<body>
+    <nav></nav>
+    <h3>Drop Up</h3>
+    <br>
+    <p>A dropup menu is a toggleable menu that allows the user to choose one value from a predefined list:</p>
+    <br>
+    <div class="dropup">
+        <div class="links">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 2</a>
+        </div>
+        <span>Dropup</span>
+    </div>
+    
+</body>
+</html>

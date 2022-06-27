@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            display: flex;
+            height: 20%;
+        }
+        li{
+            width: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1%;
+            cursor: pointer;
+        }
+        p{
+            padding-top: 1%;
+        }
+        .container {
+            padding: 2%;
+            color: white;
+
+        }
+        #Home {
+            background-color: crimson;
+        }
+        #News{
+            background-color: green;
+        }
+        #Contact{
+            background-color: deepskyblue;
+        }
+        #About{
+            background-color: darkorange;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <ul>
+            <li class="ftab">Home</li>
+            <li class="ftab">News</li>
+            <li class="ftab">Contact</li>
+            <li class="ftab">About</li>
+        </ul>
+    </header>
+    <main>
+        <div class="container" id="Home">
+            <h1>Home</h1>
+            <p>Home is where the heart is..</p>
+        </div>
+        <div class="container" id="News">
+            <h1>News</h1>
+            <p>Some news this fine day!</p>
+        </div>
+        <div class="container" id="Contact">
+            <h1>Contact</h1>
+            <p>Get in touch, or swing by for a cup of coffee.</p>
+        </div>
+        <div class="container" id="About">
+            <h1>About</h1>
+            <p>Who we are and what we do.</p>
+        </div>
+    </main>
+    <script>
+        const container = document.querySelectorAll('.container');
+        const ftab = document.querySelectorAll('.ftab');
+        const bg_colors = ['crimson','green','deepskyblue','darkorange'];
+
+        container.forEach(elem => {
+            elem.style.display = 'none';
+        })
+
+        let prevContainer = container[1], prevFtab = ftab[1];
+        container[1].style.display = 'block';
+        ftab[1].style = `background-color:${bg_colors[1]};color:white;`;
+
+        for (let i = 0; i<ftab.length; i++) {
+            ftab[i].addEventListener('mouseenter',()=>{
+                if(prevFtab !== ftab[i])ftab[i].style = 'background-color:lightgrey';
+            })
+            ftab[i].addEventListener('mouseleave',()=>{
+                if(prevFtab !== ftab[i])ftab[i].style = 'background-color:transparent';
+            })
+            ftab[i].addEventListener('click',()=>{
+                prevFtab.style = 'background-color:transparent;color:black;';
+                prevContainer.style.display = 'none';
+                ftab[i].style = `background-color:${bg_colors[i]};color:white;`;
+                container[i].style.display = 'block';
+                prevFtab = ftab[i];
+                prevContainer = container[i];
+            })
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        main{
+            display: flex;
+            border: 0.4px solid gray;
+        }
+        section{
+            height: 60vh;
+            width: 15vw;
+            display: flex;
+            flex-direction: column;
+            background-color:lightcyan;
+        }
+        .vtabs{
+            height: 15%;
+            padding: 4%;
+            
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .blogs{
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <div class="vtabs">London</div>
+            <div class="vtabs">Paris</div>
+            <div class="vtabs">Tokyo</div>
+        </section>
+        <article>
+            <div class="blogs"><h3>London</h3><br>London is the capital city of England.</div>
+            <div class="blogs"><h3>Paris</h3><br>Paris is the capital of France.</div>
+            <div class="blogs"><h3>Tokyo</h3><br>Tokyo is the capital of Japan.</div>
+        </article>
+    </main>
+    <script>
+        const vtabs = document.querySelectorAll('.vtabs');
+        const blogs = document.querySelectorAll('.blogs');
+
+        blogs.forEach(element => {
+            element.style.display = 'none';
+        });
+
+
+        blogs[0].style.display = 'block';
+        vtabs[0].style.background = 'aliceblue';
+
+        let prevBlog = blogs[0], prevVtabs = vtabs[0];
+
+        for (let i = 0; i <vtabs.length; i++) {
+            vtabs[i].addEventListener('mouseenter',()=>{
+                prevVtabs.style.background = 'lightcyan';
+                prevBlog.style.display = 'none';
+                vtabs[i].style.background = 'aliceblue';
+                blogs[i].style.display = 'block';
+                prevVtabs = vtabs[i];
+                prevBlog = blogs[i];
+            })
+           
+            
+
+
+        }
+
+    </script>
+</body>
+</html>

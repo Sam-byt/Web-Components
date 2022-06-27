@@ -1,0 +1,122 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            /* color: white; */
+        }
+
+        .des{
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        p{
+            padding:1%;
+        }
+
+        ul{
+            height: 10vh;
+            display: flex;
+        }
+
+        li{
+            width: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        #tokyo{
+            background-color:deepskyblue;
+        }
+
+        #paris{
+            background-color:green;
+        }
+
+        #london{
+            background-color:crimson;
+        }
+
+        #oslo{
+            background-color:darkorange;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="des" id="london">
+            <h1>London</h1>
+            <p>London is the capital city of England.</p>
+        </div>
+        <div class="des" id="paris">
+            <h1>Paris</h1>
+            <p>Paris is the capital of France.</p>
+        </div>
+        <div class="des" id="tokyo">
+            <h1>Tokyo</h1>
+            <p>Tokyo is the capital of Japan.</p>
+        </div>
+        <div class="des" id="oslo">
+            <h1>Oslo</h1>
+            <p>Oslo is the capital of Norway.</p>
+        </div>
+        <ul>
+            <li class="cities" >London</li>
+            <li class="cities" >Paris</li>
+            <li class="cities" >Tokyo</li>
+            <li class="cities" >Oslo</li>
+        </ul>
+    </header>
+    <script>
+        const des = document.getElementsByClassName("des");
+        const cities = document.getElementsByClassName("cities");
+        const bg_colors = ["crimson","green","deepskyblue","darkorange"];
+
+        for(let elem of des) {
+            elem.style.display = "none";
+        }
+        
+        
+
+        des[2].style.display = "flex";
+        cities[2].style = `background-color:${bg_colors[2]}; color:white;`
+
+
+        let prevCity = cities[2], prevDesc = des[2];
+
+        for(let i=0; i<cities.length; i++) {
+            cities[i].addEventListener('mouseenter',()=>{
+                if(prevCity!==cities[i])cities[i].style.background = "lightgrey";
+            });
+            cities[i].addEventListener('mouseleave',()=>{
+                if(prevCity!==cities[i])cities[i].style = "background-color:white; color:black;";
+            });
+            cities[i].addEventListener('click',()=>{
+                prevDesc.style.display = "none";
+                prevCity.style = "background-color:white; color:black;"
+                cities[i].style = `background-color:${bg_colors[i]}; color:white;`;
+                des[i].style.display = "flex";
+                prevDesc = des[i];
+                prevCity = cities[i];
+            });
+
+        }
+
+    </script>
+</body>
+</html>

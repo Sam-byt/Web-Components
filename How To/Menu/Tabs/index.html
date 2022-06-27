@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    li{
+        list-style: none;
+        padding: 1%;
+        cursor: pointer;
+    }
+    ul{
+        border: 0.5px solid grey;
+        height:15%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: rgb(241, 241, 241);
+    }
+    .blogs{
+        padding:1%;
+    }
+</style>
+<body>
+    <header></header>
+    <main>
+        <section>
+            <ul>
+                <li class="tabs">London</li>
+                <li class="tabs">Paris</li>
+                <li class="tabs">Tokyo</li>
+            </ul>
+        </section>
+        <article>
+            <div >
+                <div class="blogs">London <br>
+                    London is the capital city of England.
+                </div>
+                <div class="blogs">
+                    Paris<br>
+                    paris is the capital of France.
+                </div>
+                <div class="blogs">
+                    Tokyo <br>
+                    Tokyo is the capital of Japan.
+                </div>
+            </div>
+        </article>
+    </main>
+    <footer></footer>
+    <script>
+        const tabs = document.querySelectorAll('.tabs');
+        const blogs = document.querySelectorAll('.blogs');
+        blogs.forEach(element => {
+            element.style.display = 'none';
+        });
+
+        blogs[0].style.display = 'block';
+        tabs[0].style.background = "grey";
+        let prevBlog = blogs[0], prevTab= tabs[0];
+
+
+        for(let i=0;i<tabs.length;i++){
+            tabs[i].addEventListener("mouseenter",()=>{
+                if(prevTab !== tabs[i]){tabs[i].style.background = "lightgrey";}
+            })
+            tabs[i].addEventListener("mouseleave",()=>{
+                if(prevTab !== tabs[i]){tabs[i].style.background = "rgb(241, 241, 241)"};
+            })
+            tabs[i].addEventListener("click",()=>{
+                prevBlog.style.display = 'none';
+                prevTab.style.background = "rgb(241, 241, 241)";
+                tabs[i].style.background = "grey";
+                blogs[i].style.display = 'block';
+                prevBlog = blogs[i];
+                prevTab = tabs[i];
+            })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            font-size: 20px;
+            background-color: black;
+            color: white;
+            height: 60px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        span {
+            padding: 20px;
+        }
+        span:hover{
+            background-color:red;
+        }
+
+        ul{
+            list-style: none;
+            width: 100vh;
+            background-color: red;
+            color: white;
+            font-size: 19px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            position:absolute;
+            top: 60px;
+            z-index: 1;
+            display:none;
+        }
+        li{
+            padding: 20px;
+        }
+        li:hover{
+            background-color: white;
+            color: black;
+        }
+
+        .aboutnav:hover .about_container{
+            display: flex;
+        }
+        .aboutnav:hover .About{
+            background-color: red;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="homenav">
+                <span class="Home">Home</span>
+            </div>
+            <div class="aboutnav">
+                <span class="About">About</span>
+                <ul class="about_container">
+                    <li>Company</li>
+                    <li>team</li>
+                    <li>Careers</li>
+                </ul>
+            </div>
+            <div class="servicesnav">
+                <span class="Services">Services</span>
+                <ul class="services_container">
+                    <li>Bring</li>
+                    <li>Deliver</li>
+                    <li>Package</li>
+                    <li>Express</li>
+                </ul>
+            </div>
+            <div class="partnersnav">
+                <span class="Partners">Partners</span>
+                <ul class="partners_container">
+                    <li>Yo</li>
+                    <li>Ye</li>
+                    <li>Yu</li>
+                    <li>Yikes</li>
+                </ul>
+        
+            </div>
+            <div class="contactnav">
+                <span class="Contact">Contact</span>
+            </div>
+        </nav>
+        
+        
+        
+    </header>
+    <main>
+
+    </main>
+</body>
+
+</html>

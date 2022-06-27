@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            height: 100vh;
+            background-color:rgb(13, 66, 66);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            transition:1s;
+
+        }
+
+        span {
+            padding: 10px;
+            margin: 10px;
+            background-color: gray;
+            color: white;
+            border-radius: 4px;
+        }
+
+        span:hover {
+            background-color: green;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            overflow: hidden;
+            height: 100%;
+            width: 0;
+            transition:1s;
+        }
+
+        #cross {
+            margin: 20px;
+            text-align: end;
+        }
+
+        nav {
+            background-color: black;
+            color: lightgray;
+        }
+
+        #cross:hover {
+            color: white;
+        }
+
+        li:hover {
+            color: white;
+        }
+
+        li {
+            margin: 20px auto;
+        }
+
+        .info {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div id="cross">&#x2716;</div>
+        <ul class="info">
+            <li>Home</li>
+            <li>About</li>
+            <li>Services</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <span class="off_canvas">Off Canvas Menu</span>
+        <span class="off_canvas_w_opacity">Off Canvas Menu w/Opacity</span>
+    </div>
+    <script>
+        document.querySelector('.off_canvas').addEventListener('click', () => {   
+            document.querySelector('.navbar').style.width = `30vw`;
+            document.querySelector('.container').style = `margin-left:30vw;`;
+
+        })
+        document.querySelector('.off_canvas_w_opacity').addEventListener('click', () => {   
+            document.querySelector('.navbar').style.width = `30vw`;
+            document.querySelector('.container').style = `margin-left:30vw;opacity:0.9;`;
+
+        })
+        document.getElementById('cross').addEventListener('click', () => {   
+            document.querySelector('.navbar').style.width = `0vw`;
+            document.querySelector('.container').style = `margin-left:0vw;opacity:1 `;
+
+        })
+
+    </script>
+</body>
+
+</html>
