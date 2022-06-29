@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            margin: 10px;
+            padding: 10px;
+        }
+        main{
+            background: grey;
+            color: white;
+            padding:20px;
+        }
+        .logo{
+            width: 90%;
+            background-color:rgb(3, 87, 66);
+            color: white;
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .bar{
+            width: 10%;
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content:center;
+        }
+        nav{
+            display: flex;
+            align-items: center;
+        }
+        span{
+            height: 30px;
+        }
+        span:hover{
+            background-color: white;
+            color: black;
+        }
+        li{
+            list-style: none;
+            height: 30px;
+            background-color:rgb(36, 37, 37);
+            color: white;
+            display: flex;
+            align-items: center;
+            padding-left:15px;
+        }
+        li:hover{
+            background-color: white;
+            color: black;
+        }
+        ul{
+            display: flex;
+            flex-direction: column;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <span class="logo">logo</span>
+        <span class="bar"><i class="fa-solid fa-bars"></i></span>
+    </nav>
+    <ul class="contents">
+        <li>Home</li>
+        <li>News</li>
+        <li>About</li>
+    </ul>
+    <main>
+        <h2>Vertical Mobile Menu</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates dolorem in mollitia eum nostrum ab porro, distinctio placeat at explicabo unde laudantium asperiores fugiat odio cumque provident consequatur dignissimos! Sint numquam nobis eius delectus magnam possimus eligendi omnis placeat commodi! Quasi harum hic suscipit illo voluptatibus culpa, sunt consectetur placeat.</p>
+    </main>
+    <script src="https://kit.fontawesome.com/c2401036eb.js" crossorigin="anonymous"></script>
+    <script>
+        document.querySelector('.bar').addEventListener('click',()=>{
+            document.querySelector('ul').style.display === 'none'?document.querySelector('ul').style.display = 'flex':document.querySelector('ul').style.display = 'none';
+        })
+    </script>
+</body>
+</html>
